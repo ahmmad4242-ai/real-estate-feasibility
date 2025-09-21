@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* خطوط أساسية */
+body {
+  font-family: 'Tajawal', sans-serif;
+  background-color: #f9fafb;
+}
