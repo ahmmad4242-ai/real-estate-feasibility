@@ -1,2 +1,2 @@
-export { default } from '../dist/_worker.js';
-add functions bridge to dist/_worker.js
+export { default } from '../dist/_worker.js'; // bridge to compiled worker
+//add functions bridge to dist/_worker.js
