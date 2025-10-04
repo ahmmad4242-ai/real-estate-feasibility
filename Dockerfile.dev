@@ -1,0 +1,26 @@
+# Dockerfile للتطوير المحلي
+FROM node:20-alpine
+
+# تثبيت PM2
+RUN npm install -g pm2 wrangler
+
+# إعداد مجلد العمل
+WORKDIR /app
+
+# نسخ ملفات package
+COPY package*.json ./
+
+# تثبيت التبعيات
+RUN npm ci
+
+# نسخ باقي الملفات
+COPY . .
+
+# بناء المشروع
+RUN npm run build
+
+# تعريض المنفذ
+EXPOSE 3000
+
+# تشغيل PM2
+CMD ["pm2-runtime", "start", "ecosystem.config.cjs"]
